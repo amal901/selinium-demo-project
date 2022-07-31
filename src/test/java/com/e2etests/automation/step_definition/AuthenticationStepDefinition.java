@@ -2,6 +2,8 @@ package com.e2etests.automation.step_definition;
 
 import java.time.Duration;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,6 +18,7 @@ import io.cucumber.java.en.When;
 public class AuthenticationStepDefinition {
 
 	private AuthenticationPage authenticationPage;
+	static Logger logger = Logger.getLogger(AuthenticationStepDefinition.class);
 	public AuthenticationStepDefinition() {
 		this.authenticationPage = new AuthenticationPage();
 	}
@@ -23,16 +26,19 @@ public class AuthenticationStepDefinition {
 	/*Login*/
 	@Given("Je me connecte a l application OrangeHRM")
 	public void jeMeConnecteALApplicationOrangeHRM() {
+		PropertyConfigurator.configure("src/main/java/lof4j.properties");
 		authenticationPage.goToURL();
+		logger.info("Je me connecte a l application OrangeHRM");
 	}
 
-	@When("Je saisie le username {string}")
+	@When("Je saisis le username {string}")
 	public void jeSaisieLeUsername(String username) {
 		authenticationPage.fillUsername(username);
+		logger.info("Je saisie le username");
 
 	}
 
-	@When("Je saisie le mot le passe {string}")
+	@When("Je saisis le mot le passe {string}")
 	public void jeSaisieLeMotLePasse(String password) {
 		authenticationPage.fillPassword(password);
 

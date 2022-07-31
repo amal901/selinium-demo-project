@@ -1,0 +1,170 @@
+Using pooled Channel '[id: 0x4c1c7361, L:/127.0.0.1:52603 - R:localhost/127.0.0.1:56321]' for 'POST' to 'http://localhost:56321/session/6bc6cce35e4b85cc9db7d57dfa6ccee1/url'
+Using open Channel [id: 0x4c1c7361, L:/127.0.0.1:52603 - R:localhost/127.0.0.1:56321] for POST '/session/6bc6cce35e4b85cc9db7d57dfa6ccee1/url'
+Entry count for : http://localhost:52604 : 1
+Entry count for : http://localhost:52604 : 1
+Entry count for : http://localhost:52604 : 1
+Entry count for : http://localhost:52604 : 1
+
+
+Request DefaultHttpRequest(decodeResult: success, version: HTTP/1.1)
+POST /session/6bc6cce35e4b85cc9db7d57dfa6ccee1/url HTTP/1.1
+User-Agent: selenium/4.1.3 (java windows)
+Content-Length: 72
+Content-Type: application/json; charset=utf-8
+host: localhost:56321
+accept: */*
+
+Response DefaultHttpResponse(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+cache-control: no-cache
+content-length: 14
+
+Adding key: http://localhost:56321 for channel [id: 0x4c1c7361, L:/127.0.0.1:52603 - R:localhost/127.0.0.1:56321]
+Je me connecte a l application OrangeHRM
+Using pooled Channel '[id: 0x4c1c7361, L:/127.0.0.1:52603 - R:localhost/127.0.0.1:56321]' for 'DELETE' to 'http://localhost:56321/session/6bc6cce35e4b85cc9db7d57dfa6ccee1'
+Using open Channel [id: 0x4c1c7361, L:/127.0.0.1:52603 - R:localhost/127.0.0.1:56321] for DELETE '/session/6bc6cce35e4b85cc9db7d57dfa6ccee1'
+Channel Closed: [id: 0x368e794a, L:/127.0.0.1:52611 ! R:localhost/127.0.0.1:52604] with attribute NettyResponseFuture{currentRetry=5,
+	isDone=1,
+	isCancelled=0,
+	asyncHandler=org.asynchttpclient.ws.WebSocketUpgradeHandler@4536fe91,
+	nettyRequest=org.asynchttpclient.netty.request.NettyRequest@22a8886d,
+	future=java.util.concurrent.CompletableFuture@39c1dbc9[Completed normally],
+	uri=ws://localhost:52604/devtools/browser/a25d4ac5-38b6-4b73-a371-d2235c5a2161,
+	keepAlive=true,
+	redirectCount=0,
+	timeoutsHolder=null,
+	inAuth=0,
+	touch=1659271151465}
+Closing Channel [id: 0x368e794a, L:/127.0.0.1:52611 ! R:localhost/127.0.0.1:52604] 
+Unexpected I/O exception on channel [id: 0xe7951fd6, L:/127.0.0.1:52610 - R:localhost/127.0.0.1:52604]
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:258)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Closing Channel [id: 0xe7951fd6, L:/127.0.0.1:52610 - R:localhost/127.0.0.1:52604] 
+Channel Closed: [id: 0xe7951fd6, L:/127.0.0.1:52610 ! R:localhost/127.0.0.1:52604] with attribute DISCARD
+
+
+Request DefaultFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+DELETE /session/6bc6cce35e4b85cc9db7d57dfa6ccee1 HTTP/1.1
+User-Agent: selenium/4.1.3 (java windows)
+Content-Type: application/json; charset=utf-8
+host: localhost:56321
+accept: */*
+
+Response DefaultHttpResponse(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+cache-control: no-cache
+content-length: 14
+
+Adding key: http://localhost:56321 for channel [id: 0x4c1c7361, L:/127.0.0.1:52603 - R:localhost/127.0.0.1:56321]
+Channel Closed: [id: 0x4c1c7361, L:/127.0.0.1:52603 ! R:localhost/127.0.0.1:56321] with attribute DISCARD
+Entry count for : http://localhost:52604 : 1
+Entry count for : http://localhost:56321 : 1
+Adding Candidate expired Channel [id: 0xe7951fd6, L:/127.0.0.1:52610 ! R:localhost/127.0.0.1:52604] isIdleTimeoutExpired=false isRemotelyClosed=true isTtlExpired=false
+Closing Idle Channel [id: 0xe7951fd6, L:/127.0.0.1:52610 ! R:localhost/127.0.0.1:52604]
+Adding Candidate expired Channel [id: 0x4c1c7361, L:/127.0.0.1:52603 ! R:localhost/127.0.0.1:56321] isIdleTimeoutExpired=false isRemotelyClosed=true isTtlExpired=false
+Closing Idle Channel [id: 0x4c1c7361, L:/127.0.0.1:52603 ! R:localhost/127.0.0.1:56321]
+Closed 2 connections out of 2 in 0 ms
+Using pooled Channel '[id: 0x7b76e0b2, L:/127.0.0.1:52720 - R:localhost/127.0.0.1:51988]' for 'POST' to 'http://localhost:51988/session/a3304d8b773a09cee7d765a83141c29b/url'
+Using open Channel [id: 0x7b76e0b2, L:/127.0.0.1:52720 - R:localhost/127.0.0.1:51988] for POST '/session/a3304d8b773a09cee7d765a83141c29b/url'
+Entry count for : http://localhost:52722 : 1
+Entry count for : http://localhost:52722 : 1
+Entry count for : http://localhost:52722 : 1
+Entry count for : http://localhost:52722 : 1
+
+
+Request DefaultHttpRequest(decodeResult: success, version: HTTP/1.1)
+POST /session/a3304d8b773a09cee7d765a83141c29b/url HTTP/1.1
+User-Agent: selenium/4.1.3 (java windows)
+Content-Length: 72
+Content-Type: application/json; charset=utf-8
+host: localhost:51988
+accept: */*
+
+Response DefaultHttpResponse(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+cache-control: no-cache
+content-length: 14
+
+Adding key: http://localhost:51988 for channel [id: 0x7b76e0b2, L:/127.0.0.1:52720 - R:localhost/127.0.0.1:51988]
+Je me connecte a l application OrangeHRM
+Using pooled Channel '[id: 0x7b76e0b2, L:/127.0.0.1:52720 - R:localhost/127.0.0.1:51988]' for 'DELETE' to 'http://localhost:51988/session/a3304d8b773a09cee7d765a83141c29b'
+Using open Channel [id: 0x7b76e0b2, L:/127.0.0.1:52720 - R:localhost/127.0.0.1:51988] for DELETE '/session/a3304d8b773a09cee7d765a83141c29b'
+Channel Closed: [id: 0x934ddc13, L:/127.0.0.1:52729 ! R:localhost/127.0.0.1:52722] with attribute NettyResponseFuture{currentRetry=5,
+	isDone=1,
+	isCancelled=0,
+	asyncHandler=org.asynchttpclient.ws.WebSocketUpgradeHandler@114abf08,
+	nettyRequest=org.asynchttpclient.netty.request.NettyRequest@3fdfc3e6,
+	future=java.util.concurrent.CompletableFuture@ebd3735[Completed normally],
+	uri=ws://localhost:52722/devtools/browser/414aa22d-a5dc-4c6c-8d4a-6b32e92f99a8,
+	keepAlive=true,
+	redirectCount=0,
+	timeoutsHolder=null,
+	inAuth=0,
+	touch=1659271280590}
+Closing Channel [id: 0x934ddc13, L:/127.0.0.1:52729 ! R:localhost/127.0.0.1:52722] 
+Unexpected I/O exception on channel [id: 0xc10f2bdb, L:/127.0.0.1:52728 - R:localhost/127.0.0.1:52722]
+java.io.IOException: Une connexion existante a dû être fermée par l’hôte distant
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:258)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Closing Channel [id: 0xc10f2bdb, L:/127.0.0.1:52728 - R:localhost/127.0.0.1:52722] 
+Channel Closed: [id: 0xc10f2bdb, L:/127.0.0.1:52728 ! R:localhost/127.0.0.1:52722] with attribute DISCARD
+
+
+Request DefaultFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: EmptyByteBufBE)
+DELETE /session/a3304d8b773a09cee7d765a83141c29b HTTP/1.1
+User-Agent: selenium/4.1.3 (java windows)
+Content-Type: application/json; charset=utf-8
+host: localhost:51988
+accept: */*
+
+Response DefaultHttpResponse(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+cache-control: no-cache
+content-length: 14
+
+Adding key: http://localhost:51988 for channel [id: 0x7b76e0b2, L:/127.0.0.1:52720 - R:localhost/127.0.0.1:51988]
+Channel Closed: [id: 0x7b76e0b2, L:/127.0.0.1:52720 ! R:localhost/127.0.0.1:51988] with attribute DISCARD
+Entry count for : http://localhost:52722 : 1
+Entry count for : http://localhost:51988 : 1
+Adding Candidate expired Channel [id: 0xc10f2bdb, L:/127.0.0.1:52728 ! R:localhost/127.0.0.1:52722] isIdleTimeoutExpired=false isRemotelyClosed=true isTtlExpired=false
+Closing Idle Channel [id: 0xc10f2bdb, L:/127.0.0.1:52728 ! R:localhost/127.0.0.1:52722]
+Adding Candidate expired Channel [id: 0x7b76e0b2, L:/127.0.0.1:52720 ! R:localhost/127.0.0.1:51988] isIdleTimeoutExpired=false isRemotelyClosed=true isTtlExpired=false
+Closing Idle Channel [id: 0x7b76e0b2, L:/127.0.0.1:52720 ! R:localhost/127.0.0.1:51988]
+Closed 2 connections out of 2 in 1 ms

@@ -7,30 +7,21 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.e2etests.automation.utils.Setup;
 
-public class AuthentificationBuzzPage {
-	@FindBy(how = How.ID, using = "txtUsername")
-	public static WebElement username;
-
-	@FindBy(how = How.ID, using = "txtPassword")
-	public static WebElement password;
-
-	@FindBy(how = How.ID, using = "btnLogin")
-	public static WebElement btnLogin;
-	
+public class BuzzPage {
+		
 	@FindBy(how = How.ID, using = "menu_buzz_viewBuzz")
 	public static WebElement btnBuzz;
 	
 	@FindBy(how = How.ID, using = "createPost_content")
-	public static WebElement inYourMind;
+	public static WebElement champMind;
 	
 	@FindBy(how = How.ID, using = "postSubmitBtn")
 	public static WebElement btnPost;
 	
-	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Logout')]")
-	public static WebElement btnLogout;
-	
-	
-	public AuthentificationBuzzPage() {
+	@FindBy(how = How.ID, using = "postContent_17")
+	public static WebElement newMessage;
+		
+	public BuzzPage() {
 		PageFactory.initElements(Setup.driver, this);
 	}
 	
@@ -40,32 +31,17 @@ public class AuthentificationBuzzPage {
 		Setup.driver.get(url);
 	}
 	
-	public void fillUsername(String txt_username) {
-	username.sendKeys(txt_username);
-	}
-
-	public void fillPassword(String txt_password) {
-		password.sendKeys(txt_password);
-	}
-
-	public void clickOnbtnLogin() {
-		btnLogin.click();
-	}
 	
 	public void clickOnbtnBuzz() {
 		btnBuzz.click();
 	}
 	
 	public void fillInYourMind(String txt_mind) {
-		inYourMind.sendKeys(txt_mind);
+		champMind.sendKeys(txt_mind);
 	}
 	
 	public void clickOnbtnPost() {
 		btnPost.click();
-	}
-	
-	public void clickOnbtnLogout() {
-		btnLogout.click();
 	}
 
 
