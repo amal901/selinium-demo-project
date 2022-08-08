@@ -5,7 +5,7 @@ Feature: Je me connecte a l'application OrangeHRM
   Background:	
   	Given Je me connecte a l application OrangeHRM
     When Je saisis le username "Admin"
-    And Je saisis le mot le passe "admin123"
+    And Je saisis le mot le passe "YWRtaW4xMjM"
     And Je clique sur le bouton login
 
   @connexion_ok

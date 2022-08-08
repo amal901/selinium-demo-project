@@ -2,7 +2,7 @@
 Feature: Authentification sur l application Orange
   En tant que utilisateur je souhaite m authentifier sur l application l application Orange
 
-  @login
+  @login_buzz
   Scenario: Authentification sur l application Orange
     Given Je me connecte a l application OrangeHRM "https://opensource-demo.orangehrmlive.com"
     When Je saisis le username "Admin"

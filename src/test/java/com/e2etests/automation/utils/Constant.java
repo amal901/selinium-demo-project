@@ -2,7 +2,7 @@ package com.e2etests.automation.utils;
 
 public class Constant {
 
-	public static final String Path_TestData = "C://automatisation//Prod//trunk//LocVacSLG//src/test/resource/dataTest/TestData.xlsx//";
+	public static final String Path_TestData = "C:\\Users\\pc\\eclipse-workspace\\frw-automation-test\\src\\test\\resource\\dataTest\\";
 
 	public static final String File_TestData = "TestData.xlsx";
 

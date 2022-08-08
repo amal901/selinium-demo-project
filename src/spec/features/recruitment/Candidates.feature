@@ -1,56 +1,42 @@
 @recruitment
 Feature: Chercher et supprimer des candidats ou des offres d emploi
-  En tant qu utilisateur, je souhaite verifier la presence d un candidat ou d offre d emploi et le suppimer 
+  En tant qu utilisateur, je souhaite verifier la presence d un candidat ou d offre d emploi et le suppimer
 
   Background: 
-   Given Je me connecte a l application OrangeHRM
+    Given Je me connecte a l application OrangeHRM
     When Je saisis le username "Admin"
-    And Je saisis le mot le passe "admin123"
+    And Je saisis le mot le passe "YWRtaW4xMjM="
     And Je clique sur le bouton login
     And Je clique sur le module Recruitment
 
   @add_candidate
   Scenario Outline: Ajouter un candidat
-  	When je clique sur le bouton Add 
-  	Then la page Add Candidate s affiche
-  	When je saisis le first name, le middle name et  last name
-  	And Je saisis l adress email "<amal.@gmail.com>"
-  	And  Je saisis le nmero de telephone "<222222222>"
-  	And Je selectionne "<Software Engineer>" dans Job Vacancy
-  	And Je choisis un fichier 
-  	And Je saisis le job title "<Software Engineer>"
-    And Je saisis le candidat Name "<candidate_Name>"
-    And Je choisis une date d application
+    When Je clique sur le bouton Add
+    Then La page Add Candidate s affiche "Add Candidate"
+    When Je saisis le prenom dans le champ First Name "<first_name>"
+    And Je saisis le deuxieme nom dans le champ Middle Name "<middle_name>"
+    And Je saisis le nom dans le champ Last Name "<last_name>"
+    And Je saisis l adress email dans le champ Email "<mail>"
+    And Je saisis le numero de telephone dans champ Contact No "<contact_no>"
+    And Je selectionne Software Engineer dans Job Vacancy "<job_vacancy>"
+    And Je choisis un fichier dans resume "<resume>"
+    And Je choisis une date d application "<date_Application>"
     And Je clique sur le bouton save
-    Then Je verifie que le cndidat est ajouté
-   
+    Then Je verifie que le condidat est ajouté "Status: Application Initiated"
 
     Examples: 
-      | candidate_Name   |
-      | Jennifer Clinton |
-      | gonetone 03      |
+      | first_name | middle_name | last_name | mail           | contact_no | job_vacancy       | resume                                        | date_Application |
+      | Amal       | Amal        | Aouini    | amal@gmail.com |  222222222 | Software Engineer | C:\\Users\\pc\\Downloads\\Test technique.docx | 2022-08-03|
+      | Amal       | Amal        | Aouini    | amal@gmail.com |  222222222 | Software Engineer | C:\\Users\\pc\\Downloads\\Test technique.docx | 2022-08-03 |
 
-  @delet_candidate
-  Scenario Outline: supprimer un candidat
-    When Je clique sur le bouton Add afin d ajouter un nouveau candidat
-    Then Je me suis redirigee vers la page "Add Candidate"
-    When Je sais le prenom du candidat dans le champ First Name "<first_Name>"
-    And Je saisis le deuxieme nom dans le champ Middle Name "<middle_Name>"
-    And Je saisis le nom dans le champ Last Name "<last_Name>"
-    And Je saisis l E-mail du nouveau candidat dans le champ E-mail "<email>"
-    And Je sais le numero de contact dans le champ Contact No "<contact_No>"
-    And Je saisis le titre de poste tout en utilisant la liste deroulante Job Vacancy "<job_Vacancy>"
-    And Je fait joindre le curriculum vitae du candidat dans le champ Resume "<resume>"
-    And Je saisis des mots cles dans le champ Keywords "<keywords>"
-    And Je saisis un commentaire dans le champ Comment "<comment>"
-    And Je saisis la date d application dans le champ Date of Application "<date_Application>"
-    And Je clique sur le chekbox afin de confirmer le consentement de conserver les données
-    And Je clique sur le bouton Save afin de sauvegarder les donnees saisies
-    Then Je verifie que le candidat a ete bien ajoute a la liste "Status: Application Initiated"
-    When Je clique sur le bouton Back pour que je puisse ajouter un nouveau candidat
-    And Je clique sur le bouton Add afin d ajouter un nouveau candidat
-
-    Examples: 
-      | first_Name | middle_Name | last_Name | email                 | contact_No   | job_Vacancy       | resume                                        | keywords | comment | date_Application |
-      | Yosra      | yosra       | WELHAZI   | yosrawelhazi@yahoo.fr | +21629663428 | Software Engineer | C:\\Users\\pc\\Downloads\\Test technique.docx | nothing  | nothing | 2022-07-31       |
-      | Yos        | yosra11111  | WEL       | yosrawelhazi@yahoo.fr | +2161        | Software Engineer | C:\\Users\\pc\\Downloads\\Test technique.docx | nothing  | nothing | 2020-08-28       |
+  @search_candidate
+  Scenario Outline: Chercher et supprimer un candidat
+    When Je selectionne Software Engineer dans le champ Job "Software Engineer"
+    And Je seletionne Application Initiated dans le champ Status "Application Initiated"
+    And Je Saisis Amal dans le champ Nom du candidhat "Amal Amal Aouini"
+    And Je clique sur le bouton search in candidates
+    Then Je verifie que le candidat est affiche dans le tableau "Amal Amal Aouini"
+    When Je coche Amal Amal Aouini
+    And Je clique sur le bouton Delete
+    And Je clique sur le bouton OK
+    Then Je verifie que le candiat a ete supprime "Amal Amal Aouini"

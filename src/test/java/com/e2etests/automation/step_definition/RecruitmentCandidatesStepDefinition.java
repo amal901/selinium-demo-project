@@ -1,11 +1,8 @@
 package com.e2etests.automation.step_definition;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import com.e2etests.automation.page_object.RecruitmentCandidatesPage;
-import com.e2etests.automation.utils.Setup;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,127 +17,125 @@ public class RecruitmentCandidatesStepDefinition {
 	
 	@When("Je clique sur le module Recruitment")
 	public void jeCliqueSurLeModuleRecruitment() {
-		recruitmentCandidatesPage.clickOnRecruitMod();	    
-	}
-	
-	/* Delete Candidates */
-	
-	@When("Je saisis le nom du candidat dans le champ Candidate Name {string}")
-	public void jeSaisisLeNomDuCandidatDansLeChampCandidateName(String cand_Name) {
-		recruitmentCandidatesPage.fillCandidateName(cand_Name);
-	}
-	
-	@When("Je clique sur le bouton Search afin de lancer la recherche du candidat")
-	public void jeCliqueSurLeBoutonSearchAfinDeLancerLaRechercheDuCandidat() {
-		recruitmentCandidatesPage.clickOnBtnSearch();	   
-	}
-	
-	@When("Je clique sur le checkbox qui correspond au candidat selectionne")
-	public void jeCliqueSurLeCheckboxQuiCorrespondAuCandidatSelectionne() {
-		recruitmentCandidatesPage.clickOnCheckbox();
+		recruitmentCandidatesPage.clickOnModuleRecruitment();
 	 
 	}
 	
-	@When("Je clique sur le bouton Delete afin de supprimer le candidat de la liste")
-	public void jeCliqueSurLeBoutonDeleteAfinDeSupprimerLeCandidatDeLaListe() {
-		recruitmentCandidatesPage.clickOnDeleteCandidate();	   
+	@When("Je clique sur le bouton Add")
+	public void jeCliqueSurLeBoutonAdd() {
+		recruitmentCandidatesPage.clickOnbtnAdd();
+	 
+	}
+	@Then("La page Add Candidate s affiche {string}")
+	public void laPageAddCandidateSAffiche(String Add_Candidate_Title) {
+	String titleAddCandidate = RecruitmentCandidatesPage.candidate_Heading.getText();
+	Assert.assertTrue(titleAddCandidate.contains(Add_Candidate_Title));
+	
 	}
 	
-	@When("Je clique sur le bouton OK dans la boite de dialogue qui s affiche")
-	public void jeCliqueSurLeBoutonOKDansLaBoiteDeDialogueQuiSAffiche() {
-		recruitmentCandidatesPage.clickOnBtnDialog();	
+	@When("Je saisis le prenom dans le champ First Name {string}")
+	public void jeSaisisLePrenomDansLeChampFirstNameAmal(String first_name) {
+		recruitmentCandidatesPage.fillCandidateFirstName(first_name);
+	    
 	}
-	
-	@Then("Je verifie que le candidat selectionne a ete bien supprime de la liste {string}")
-	public void jeVerifieQueLeCandidatSelectionneAEteBienSupprimeDeLaListe(String name) {
-		WebElement candidate_Name = Setup.driver.findElement(By.xpath("//*[contains(text(),name)]"));
-		boolean result1 = candidate_Name.isDisplayed();
-		System.out.println(result1);
-	   
-	}
-	
-	/* Add Candidates */
-	
-	@When("Je clique sur le bouton Add afin d ajouter un nouveau candidat")
-	public void jeCliqueSurLeBoutonAddAfinDAjouterUnNouveauCandidat() {
-		recruitmentCandidatesPage.clickOnBtnAdd();
-	   
-	}
-	
-	@Then("Je me suis redirigee vers la page {string}")
-	public void jeMeSuisRedirigeeVersLaPage(String message_add) {
-		String message = RecruitmentCandidatesPage.add_Cand_Page.getText();
-		Assert.assertTrue(message.contains(message_add));
-	}
-	
-	@When("Je sais le prenom du candidat dans le champ First Name {string}")
-	public void jeSaisLePrenomDuCandidatDansLeChampFirstName(String first_Name) {
-		recruitmentCandidatesPage.fillFirstName(first_Name);
-	}
-	
 	@When("Je saisis le deuxieme nom dans le champ Middle Name {string}")
-	public void jeSaisisLeDeuxiemeNomDansLeChampMiddleName(String middle_Name) {
-		recruitmentCandidatesPage.fillMiddleName(middle_Name);
+	public void jeSaisisLeDeuxiemeNomDansLeChampMiddleNameAmal(String middle_name) {
+		recruitmentCandidatesPage.fillCandidateMiddleName(middle_name);
+	    
 	}
-	
 	@When("Je saisis le nom dans le champ Last Name {string}")
-	public void jeSaisisLeNomDansLeChampLastName(String last_Name) {
-		recruitmentCandidatesPage.fillLastName(last_Name);
+	public void jeSaisisLeNomDansLeChampLastNameAouini(String last_name) {
+		recruitmentCandidatesPage.fillCandidateLastName(last_name);
+	   
 	}
-	
-	@When("Je saisis l E-mail du nouveau candidat dans le champ E-mail {string}")
-	public void jeSaisisLEMailDuNouveauCandidatDansLeChampEMail(String cand_Email) {
-		recruitmentCandidatesPage.fillCandidateEmail(cand_Email);
+	@When("Je saisis l adress email dans le champ Email {string}")
+	public void jeSaisisLAdressEmailDansLeChampEmailAmalGmailCom(String mail) {
+		recruitmentCandidatesPage.fillCandidateEmail(mail);
+
 	}
-	
-	@When("Je sais le numero de contact dans le champ Contact No {string}")
-	public void jeSaisLeNuméroDeContactDansLeChampContactNo(String cand_Contact) {
-		recruitmentCandidatesPage.fillCandidateContactNo(cand_Contact);
-	}
-	
-	@When("Je saisis le titre de poste tout en utilisant la liste deroulante Job Vacancy {string}")
-	public void jeSaisisLeTitreDePosteToutEnUtilisantLaListeDeroulanteJobVacancy(String job_Vacancy) {
-		recruitmentCandidatesPage.selectJobVacancyFromDropDownList(job_Vacancy);
-	}
-	
-	@When("Je fait joindre le curriculum vitae du candidat dans le champ Resume {string}")
-	public void jeFaitJoindreLeCurriculumVitaeDuCandidatDansLeChampResume (String filePath) {
-		recruitmentCandidatesPage.attachCandidateResume(filePath);	   
-	}
-	
-	@When("Je saisis des mots cles dans le champ Keywords {string}")
-	public void jeSaisisDesMotsClesDansLeChampKeywords(String cand_Keywords) {
-		recruitmentCandidatesPage.fillCandidateKeywords(cand_Keywords);   
-	}
-	
-	@When("Je saisis un commentaire dans le champ Comment {string}")
-	public void jeSaisisUnCommentaireDansLeChampComment(String cand_comment) {
-		recruitmentCandidatesPage.fillCandidateComment(cand_comment);
-	}
-	
-	@When("Je saisis la date d application dans le champ Date of Application {string}")
-	public void jeSaisisLaDateDApplicationDansLeChampDateOfApplication(String application_Date) {
-		recruitmentCandidatesPage.fillApplicationDate(application_Date);
-	}
-	
-	@When("Je clique sur le chekbox afin de confirmer le consentement de conserver les données")
-	public void jeCliqueSurLeChekboxAfinDeConfirmerLeConsentementDeConserverLesDonnées() {
-		recruitmentCandidatesPage.clickOnCheckboxConsentData();
-	}
-	
-	@When("Je clique sur le bouton Save afin de sauvegarder les donnees saisies")
-	public void jeCliqueSurLeBoutonSaveAfinDeSauvegarderLesDonneesSaisies() {
-		recruitmentCandidatesPage.clickOnBtnSaveCandidateData();
-	}
-	
-	@Then("Je verifie que le candidat a ete bien ajoute a la liste {string}")
-	public void jeVerifieQueLeCandidatAEteBienAjouteALaListe(String message_confirm) {
-		String message = RecruitmentCandidatesPage.confirm_Msg.getText();
-		Assert.assertTrue(message.contains(message_confirm));
+	@When("Je saisis le numero de telephone dans champ Contact No {string}")
+	public void jeSaisisLeNumeroDeTelephoneDansChampContactNo(String contact_no) {
+		recruitmentCandidatesPage.fillContactNo(contact_no);
+	   
 	}
 
-	@When("Je clique sur le bouton Back pour que je puisse ajouter un nouveau candidat")
-	public void jeCliqueSurLeBoutonBackPourQueJePuisseAjouterUnNouveauCandidat() {
-	    recruitmentCandidatesPage.clickOnBtnBack();
+	@When("Je selectionne Software Engineer dans Job Vacancy {string}")
+	public void jeSelectionneSoftwareEngineerDansJobVacancy(String job_Vacancy) {
+	recruitmentCandidatesPage.chooseJobVacancy(job_Vacancy);
+	}
+
+	@When("Je choisis un fichier dans resume {string}")
+	public void jeChoisisUnFichierDansResume(String filePath) {
+		recruitmentCandidatesPage.uploadResume(filePath);
+	   
+	}
+	@When("Je choisis une date d application {string}")
+	public void jeChoisisUneDateDApplication(String date_Application) throws InterruptedException {
+		recruitmentCandidatesPage.fillDateAplication(date_Application);
+		Thread.sleep(2000);
+	   
+	}
+	@When("Je clique sur le bouton save")
+	public void jeCliqueSurLeBoutonSave() {
+		recruitmentCandidatesPage.clickSave();
+	    
+	}
+	@Then("Je verifie que le condidat est ajouté {string}")
+	public void jeVerifieQueLeCondidatEstAjouté(String condidatAjoute) {
+		String message = RecruitmentCandidatesPage.messageStatus.getText();
+		Assert.assertTrue(message.contains(condidatAjoute));
+	   
+	}
+	
+	/* @Search and delete */
+	
+	@When("Je selectionne Software Engineer dans le champ Job {string}")
+	public void jeSelectionneSoftwareEngineerDansLeChampJob(String job_Vacancy_search) {
+		recruitmentCandidatesPage.chooseJobTitleSearch(job_Vacancy_search);
+
+	}
+	@When("Je seletionne Application Initiated dans le champ Status {string}")
+	public void jeSeletionneApplicationInitiatedDansLeChampStatus(String status_job) {
+		recruitmentCandidatesPage.chooseJobStatus(status_job);
+
+	}
+	@When("Je Saisis Amal dans le champ Nom du candidhat {string}")
+	public void jeSaisisAmalDansLeChampNomDuCandidhat(String searchCandidatName) {
+		recruitmentCandidatesPage.fillCandidateNameSearch(searchCandidatName);
+
+	}
+	@When("Je clique sur le bouton search in candidates")
+	public void jeCliqueSurLeBoutonSearchInCandidates() throws InterruptedException {
+		recruitmentCandidatesPage.clickOnSearchCandidate();
+		Thread.sleep(2000);
+
+	}
+	@Then("Je verifie que le candidat est affiche dans le tableau {string}")
+	public void jeVerifieQueLeCandidatEstAfficheDansLeTableau(String nameResultSearh) {
+		String resultSearchName = RecruitmentCandidatesPage.result_candidate_search_name.getText();
+		Assert.assertTrue(resultSearchName.contains(nameResultSearh));
+
+	}
+	@When("Je coche Amal Amal Aouini")
+	public void jeCocheAmalAmalAouini() {
+		recruitmentCandidatesPage.checkboCandidate();
+
+	}
+	@When("Je clique sur le bouton Delete")
+	public void jeCliqueSurLeBoutonDelete() {
+		recruitmentCandidatesPage.deleteCandidate();
+
+	}
+	@When("Je clique sur le bouton OK")
+	public void jeCliqueSurLeBoutonOK() {
+		recruitmentCandidatesPage.confirmationDelete();
+
+	}
+	
+	@Then("Je verifie que le candiat a ete supprime {string}")
+	public void jeVerifieQueLeCandiatAEteSupprime(String Name) {
+		String resultDeleteName = RecruitmentCandidatesPage.result_candidate_search_name.getText();
+		Assert.assertFalse(resultDeleteName.contains(Name));
+
 	}
 }

@@ -8,10 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import com.e2etests.automation.utils.BasePage;
 import com.e2etests.automation.utils.ConfigFileReader;
 import com.e2etests.automation.utils.Setup;
+import com.e2etests.automation.utils.WebActionHelperMethods;
 
 public class AuthenticationPage extends BasePage {
 	
 	private ConfigFileReader configFileReader;
+	private WebActionHelperMethods webActionHelperMethods;
 
 	/* @FindBy WebElement */
 	@FindBy(how = How.ID, using = "txtUsername")
@@ -32,6 +34,7 @@ public class AuthenticationPage extends BasePage {
 	public AuthenticationPage() {
 		PageFactory.initElements(Setup.driver, this);
 		this.configFileReader = new ConfigFileReader();
+		this.webActionHelperMethods = new WebActionHelperMethods();
 	}
 
 	/* Create methods */
@@ -41,7 +44,7 @@ public class AuthenticationPage extends BasePage {
 	}
 
 	public void fillPassword(String txt_password) {
-		password.sendKeys(txt_password);
+		password.sendKeys(WebActionHelperMethods.decoderString(txt_password));
 	}
 
 	public void clickOnbtnLogin() {

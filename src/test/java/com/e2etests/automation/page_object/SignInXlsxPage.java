@@ -3,8 +3,10 @@ package com.e2etests.automation.page_object;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 import com.e2etests.automation.utils.ExcelUtils;
+import com.e2etests.automation.utils.Setup;
 
 public class SignInXlsxPage {
 	
@@ -18,15 +20,20 @@ public class SignInXlsxPage {
 	@FindBy(how = How.ID, using = "btnLogin")
 	public static WebElement btnLogin;
 	
-	public void signInXlsxPage() throws Exception {
+	public SignInXlsxPage() throws Exception {
+		PageFactory.initElements(Setup.driver, this);
+		
+	}
+	
+	public void signInXlsxe() throws Exception {
 		
 		//This is to get the values from Excel Sheet, passing parameters(Row Num, Col Num) to getCellData
-		String sUsername = ExcelUtils.getCellData(1,1);
-		String sPassword = ExcelUtils.getCellData(1,2);
+		String sUsername = ExcelUtils.getCellData(1, 1);
+		String sPassword = ExcelUtils.getCellData(1, 2);
 		
 		username.sendKeys(sUsername);
 		password.sendKeys(sPassword);
-		
+		btnLogin.click();
 	}
 
 }

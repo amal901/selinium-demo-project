@@ -1,6 +1,5 @@
 package com.e2etests.automation.page_object;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -13,168 +12,153 @@ public class RecruitmentCandidatesPage {
 
 	/* @FindBy WebElement */
 	
-	/* Delete Candidates */
 	@FindBy(how = How.ID, using = "menu_recruitment_viewRecruitmentModule")
-	public static WebElement recruit_Mod;
-
-	@FindBy(how = How.ID, using = "candidateSearch_candidateName")
-	public static WebElement cand_Name;
-
-	@FindBy(how = How.ID, using = "btnSrch")
-	public static WebElement btnSearch;
-
-	@FindBy(how = How.ID, using = "ohrmList_chkSelectAll")
-	public static WebElement checkbox;
-
-	@FindBy(how = How.ID, using = "btnDelete")
-	public static WebElement btnDelete;
-
-	@FindBy(how = How.ID, using = "dialogDeleteBtn")
-	public static WebElement btnDialog;
+	public static WebElement moduleRecruitment;
 	
-	/* Add Candidates */
-		
 	@FindBy(how = How.ID, using = "btnAdd")
-	public static WebElement btnADD;
+	public static WebElement btnAdd;
 	
 	@FindBy(how = How.ID, using = "addCandidateHeading")
-	public static WebElement add_Cand_Page;
+	public static WebElement candidate_Heading;
 	
 	@FindBy(how = How.ID, using = "addCandidate_firstName")
-	public static WebElement first_Name;
+	public static WebElement first_name;
 	
-	@FindBy (how = How.ID, using="addCandidate_middleName")
-	public static WebElement middle_Name;
+	@FindBy(how = How.ID, using = "addCandidate_middleName")
+	public static WebElement middle_name;
 	
-	@FindBy (how = How.ID, using="addCandidate_lastName")
-	public static WebElement last_Name;
+	@FindBy(how = How.ID, using = "addCandidate_lastName")
+	public static WebElement last_name;
 	
-	@FindBy (how = How.ID, using="addCandidate_email")
-	public static WebElement cand_Email;
+	@FindBy(how = How.ID, using = "addCandidate_email")
+	public static WebElement mail;
 	
-	@FindBy (how = How.ID, using ="addCandidate_contactNo")
-	public static WebElement cand_Contact;
+	@FindBy(how = How.ID, using = "addCandidate_contactNo")
+	public static WebElement contact_no;	
 	
-	@FindBy (how = How.ID, using ="addCandidate_vacancy")
-	public static WebElement jobVacancy_DropDownList;
+	@FindBy(how = How.ID, using = "addCandidate_vacancy")
+	public static WebElement job_Vacancy_List;
 	
-	@FindBy (how = How.ID, using="addCandidate_resume")
-	public static WebElement cand_Resume;
+	@FindBy(how = How.ID, using = "addCandidate_resume")
+	public static WebElement resume;
 	
-	@FindBy (how = How.ID, using="addCandidate_keyWords")
-	public static WebElement cand_Keywords;
+	@FindBy(how = How.ID, using = "addCandidate_appliedDate")
+	public static WebElement date_Application;
 	
-	@FindBy (how = How.ID, using="addCandidate_comment")
-	public static WebElement cand_comment;
+	@FindBy(how = How.ID, using = "btnSave")
+	public static WebElement btnSave;
 	
-	@FindBy (how = How.ID, using="addCandidate_appliedDate")
-	public static WebElement application_Date;
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Status: Application Initiated')]")
+	public static WebElement messageStatus;
 	
-	@FindBy (how = How.ID, using="addCandidate_consentToKeepData")
-	public static WebElement checkbox_ConsentData;
+	/* @Search candidate */
 	
-	@FindBy (how = How.ID, using="btnSave")
-	public static WebElement btnSav;
+	//@FindBy(how = How.XPATH, using = "//*[contains(text(), 'Add User')]")
+	//public static WebElement add_Candidate;
 	
-	@FindBy (how = How.XPATH, using ="//*[contains(text(),'Status: Application Initiated')]")
-	public static WebElement confirm_Msg;
+	@FindBy(how = How.ID, using = "candidateSearch_jobTitle")
+	public static WebElement candidate_Job_Title;
 	
-	@FindBy (how = How.ID, using="btnBack")
-	public static WebElement btnBackk;
+	@FindBy(how = How.ID, using = "candidateSearch_status")
+	public static WebElement candidate_List_Status;
+	
+	@FindBy(how = How.ID, using = "candidateSearch_candidateName")
+	public static WebElement candidate_Name_InSearch;
+	
+	@FindBy(how = How.ID, using = "btnSrch")
+	public static WebElement candidate_Search_btn;
+	
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Amal Amal Aouini')]")
+	public static WebElement result_candidate_search_name;
+	
+	/* @Delete candidate */
+	@FindBy(how = How.XPATH, using = "//*[@id='resultTable']/table/thead/tr/tbody/tr/td/input")
+	public static WebElement checkboxCandidate;
+	
+	@FindBy(how = How.ID, using = "btnDelete")
+	public static WebElement btnDelete;
+	
+	@FindBy(how = How.ID, using = "dialogDeleteBtn")
+	public static WebElement confirmationbtnDelete;
 	
 	public RecruitmentCandidatesPage() {
 		PageFactory.initElements(Setup.driver, this);
+		}
+	
+	/* @Create Method */
+	
+	public void clickOnModuleRecruitment() {
+		moduleRecruitment.click();
+	}	
+	public void clickOnbtnAdd() {
+		btnAdd.click();
 	}
-		
-	/* Create Methods */
-
-	/* Delete Candidates */
-
-	public void clickOnRecruitMod() {
-		recruit_Mod.click();
+	public void fillCandidateFirstName(String text_FirstName) {
+		first_name.sendKeys(text_FirstName);
 	}
-
-	public void fillCandidateName(String txt_name) {
-		cand_Name.sendKeys(txt_name);
+	public void fillCandidateMiddleName(String text_MiddleName) {
+		middle_name.sendKeys(text_MiddleName);
 	}
-
-	public void clickOnBtnSearch() {
-		btnSearch.click();
+	public void fillCandidateLastName(String text_LastName) {
+		last_name.sendKeys(text_LastName);
 	}
-
-	public void clickOnCheckbox() {
-		checkbox.click();
+	public void fillCandidateEmail(String email) {
+		mail.sendKeys(email);
 	}
-
-	public void clickOnDeleteCandidate() {
+	public void fillContactNo(String text_contact_no) {
+		contact_no.sendKeys(text_contact_no);
+	}
+	public void chooseJobVacancy(String job_vacancy) {
+		Select select = new Select(job_Vacancy_List);
+		select.selectByVisibleText(job_vacancy);
+	}
+	public void uploadResume(String resumeFilePath) {
+		resume.sendKeys(resumeFilePath);
+	}
+	public void fillDateAplication(String applicationDate) {
+		date_Application.clear();
+		date_Application.sendKeys(applicationDate);
+	}
+	public void clickSave() {
+		btnSave.click();
+	}
+	
+	/* @Search Candidate*/
+	
+	public void chooseJobTitleSearch(String job_vacancy) {
+		Select select = new Select(candidate_Job_Title);
+		select.selectByVisibleText(job_vacancy);
+	}
+	
+	public void chooseJobStatus(String job_status) {
+		Select select = new Select(candidate_List_Status);
+		select.selectByVisibleText(job_status);
+	}
+	
+	public void fillCandidateNameSearch(String candidateNameInSearch) {
+		candidate_Name_InSearch.sendKeys(candidateNameInSearch);
+	}
+	
+	public void clickOnSearchCandidate() {
+		candidate_Search_btn.click();
+	}
+	
+	/* @Delete Candidate*/
+	
+	public void checkboCandidate() {
+		checkboxCandidate.click();
+	}
+	
+	public void deleteCandidate() {
 		btnDelete.click();
 	}
-
-	public void clickOnBtnDialog() {
-		JavascriptExecutor execute = (JavascriptExecutor)Setup.driver;
-		execute.executeScript("arguments[0].click();", btnDialog);
+	
+	public void confirmationDelete() {
+		confirmationbtnDelete.click();
 	}
 	
-	/* Add Candidates */
+	//public void clickOnSearchCandidate() {
+	//	candidate_Search_btn.click();
+	//}
 	
-	public void clickOnBtnAdd () {
-		btnADD.click();
-	}
-	
-	public void fillFirstName (String txt_firstName) {
-		first_Name.sendKeys(txt_firstName);
-	}
-	
-	public void fillMiddleName (String txt_middleName) {
-		middle_Name.sendKeys(txt_middleName);
-	}
-	
-	public void fillLastName (String txt_lastName) {
-		last_Name.sendKeys(txt_lastName);
-	}
-	
-	public void fillCandidateEmail (String email) {
-		cand_Email.sendKeys(email);
-	}
-	
-	public void fillCandidateContactNo (String contact_No) {
-		cand_Contact.sendKeys(contact_No);
-	}
-	
-	public void selectJobVacancyFromDropDownList (String job_Vacancy) {
-		Select select = new Select(jobVacancy_DropDownList);
-		select.selectByVisibleText(job_Vacancy);
-	}
-	
-	public void attachCandidateResume (String file_Path) {
-		cand_Resume.sendKeys(file_Path);
-	}
-	
-	public void fillCandidateKeywords (String keywords) {
-		cand_Keywords.sendKeys(keywords);
-	}
-	
-	public void fillCandidateComment (String txt_comment) {
-		cand_comment.sendKeys(txt_comment);
-	}
-	
-	public void fillApplicationDate (String appli_Date) {
-		application_Date.clear();
-		application_Date.sendKeys(appli_Date);
-	}
-	
-	public void clickOnCheckboxConsentData() {
-		JavascriptExecutor execute = (JavascriptExecutor)Setup.driver;
-		execute.executeScript("arguments[0].click();", checkbox_ConsentData);
-	}
-	
-	public void clickOnBtnSaveCandidateData () {
-		btnSav.click();
-	}
-	
-	public void clickOnBtnBack() {
-		btnBackk.click();
-	}
-		
-
 }
